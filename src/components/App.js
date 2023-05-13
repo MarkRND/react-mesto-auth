@@ -22,9 +22,9 @@ function App() {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
+  // const handleLogin = () => {
+  //   setIsLoggedIn(true);
+  // };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -88,7 +88,7 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(null);
+  const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
 
   const handleEditProfileClick = () => setIsEditProfilePopupOpen(true);
@@ -100,7 +100,7 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    setIsDeletePopupOpen(null);
+    setIsDeletePopupOpen(false);
     setSelectedCard({});
     setInfoMessage(null);
   };
@@ -108,6 +108,44 @@ function App() {
   const handleInfoMessage = (message) => {
     setInfoMessage(message);
   };
+
+  const handleRegister = (inputs) => {
+    auth
+      .register(inputs)
+      .then((res) => {
+        handleInfoMessage({
+          text: "Вы успешно зарегистрировались!",
+          isSuccess: true,
+        });
+        navigate("/sign-in");
+      })
+      .catch((err) => {
+        const text = err.message || "Что-то пошло не так! Попробуйте еще раз.";
+        handleInfoMessage({
+          text: text,
+          isSuccess: false,
+        });
+      });
+  };
+ 
+  const handleLogin = (inputs) => {
+    auth
+      .authorize(inputs)
+      .then((res) => {
+        if (res.token) localStorage.setItem("token", res.token);
+        setIsLoggedIn(true);
+        setEmail(email);
+        navigate("/");
+      })
+      .catch((err) => {
+        const text = err.message || "Что-то пошло не так! Попробуйте еще раз.";
+        handleInfoMessage({
+          text: text,
+          isSuccess: false,
+        });
+      });
+  };
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -124,13 +162,16 @@ function App() {
   }, [navigate]);
 
   useEffect(() => {
-    Promise.all([api.getInfoUser(), api.getCards()])
-      .then(([user, cards]) => {
-        setCurrentUser(user);
-        setCards(cards);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    if (isLoggedIn) {
+      Promise.all([api.getInfoUser(), api.getCards()])
+        .then(([user, cards]) => {
+          setCurrentUser(user);
+          setCards(cards);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [isLoggedIn]);
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -157,7 +198,7 @@ function App() {
           />
           <Route
             path="/sign-up"
-            element={<Register handleInfoMessage={handleInfoMessage} />}
+            element={<Register onRegister={handleRegister} />}
           />
           <Route
             path="/sign-in"

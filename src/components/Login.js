@@ -1,17 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import auth from "../utils/auth";
+
 import Header from "./Header";
 
-function Login({ handleInfoMessage, onLogin, setEmail }) {
+function Login({ onLogin }) {
   const defaultValues = {
     email: "",
     password: "",
   };
   const [inputs, setInputs] = useState(defaultValues);
 
-  const navigate = useNavigate();
-
+ 
   const handleChange = (evt) => {
     const value = evt.target.value;
     const name = evt.target.name;
@@ -20,24 +19,12 @@ function Login({ handleInfoMessage, onLogin, setEmail }) {
   const resetForm = () => {
     setInputs({ ...defaultValues });
   };
+
   const handleAuthorizeSubmit = (evt) => {
     evt.preventDefault();
-    auth
-      .authorize(inputs)
-      .then((res) => {
-        if (res.token) localStorage.setItem("token", res.token);
-        resetForm();
-        onLogin();
-        navigate("/");
-        setEmail(inputs.email);
-      })
-      .catch((err) => {
-        const text = err.message || "Что-то пошло не так! Попробуйте еще раз.";
-        handleInfoMessage({
-          text: text,
-          isSuccess: false,
-        });
-      });
+    console.log(inputs);
+    onLogin(inputs);
+    resetForm();
   };
 
   return (
