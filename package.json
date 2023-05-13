@@ -1,11 +1,11 @@
 {
-  "name": "mesto-react",
+  "name": "react-mesto-auth",
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarkRND/mesto-react.git"
+    "url": "git+https://github.com/MarkRND/react-mesto-auth.git"
   },
-  "homepage": "https://MarkRND.github.io/mesto-react",
+  "homepage": "https://MarkRND.github.io/react-mesto-auth",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
