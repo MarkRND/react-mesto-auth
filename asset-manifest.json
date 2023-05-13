@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/mesto-react/static/css/main.fa126cd2.css",
+    "main.js": "/mesto-react/static/js/main.d86e3a5c.js",
+    "static/js/787.5530211c.chunk.js": "/mesto-react/static/js/787.5530211c.chunk.js",
+    "static/media/Inter-Medium.woff": "/mesto-react/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff": "/mesto-react/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff": "/mesto-react/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2": "/mesto-react/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2": "/mesto-react/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2": "/mesto-react/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/logo.svg": "/mesto-react/static/media/logo.03b78ada3425e9132ff3.svg",
+    "static/media/heart.svg": "/mesto-react/static/media/heart.f8da7499c69b73a5d7fc.svg",
+    "index.html": "/mesto-react/index.html",
+    "static/media/icon__fail.svg": "/mesto-react/static/media/icon__fail.7c6a020bec681932a2af.svg",
+    "static/media/basket.svg": "/mesto-react/static/media/basket.823b0cf1b0b7e9cb7cad.svg",
+    "static/media/icon__success.svg": "/mesto-react/static/media/icon__success.1b6082f862eac35e2514.svg",
+    "static/media/Likeheart.svg": "/mesto-react/static/media/Likeheart.fe17a515669479b1e649.svg",
+    "static/media/CloseIcon.svg": "/mesto-react/static/media/CloseIcon.ad98de32e342afafa118.svg",
+    "static/media/AddButton.svg": "/mesto-react/static/media/AddButton.6f86ece55e54220c5485.svg",
+    "static/media/burger.svg": "/mesto-react/static/media/burger.a46d5c1c53c02d60fc80.svg",
+    "static/media/EditButton.svg": "/mesto-react/static/media/EditButton.8667ac4a523e8fc42e59.svg",
+    "static/media/pencil.svg": "/mesto-react/static/media/pencil.a086f758840ae814ecde.svg",
+    "static/media/icon__burger_opened.svg": "/mesto-react/static/media/icon__burger_opened.b793e07c3f4c19e26c11.svg",
+    "main.fa126cd2.css.map": "/mesto-react/static/css/main.fa126cd2.css.map",
+    "main.d86e3a5c.js.map": "/mesto-react/static/js/main.d86e3a5c.js.map",
+    "787.5530211c.chunk.js.map": "/mesto-react/static/js/787.5530211c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa126cd2.css",
+    "static/js/main.d86e3a5c.js"
+  ]
+}
